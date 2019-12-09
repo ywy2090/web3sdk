@@ -40,8 +40,11 @@ import org.fisco.bcos.web3j.abi.datatypes.StaticArray;
 import org.fisco.bcos.web3j.abi.datatypes.Type;
 import org.fisco.bcos.web3j.abi.datatypes.Utf8String;
 import org.fisco.bcos.web3j.abi.datatypes.generated.AbiTypes;
+import org.fisco.bcos.web3j.common.Collection;
+import org.fisco.bcos.web3j.common.Strings;
+import org.fisco.bcos.web3j.common.Version;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 import org.fisco.bcos.web3j.crypto.Credentials;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.core.RemoteCall;
 import org.fisco.bcos.web3j.protocol.core.methods.response.AbiDefinition;
@@ -52,9 +55,6 @@ import org.fisco.bcos.web3j.tx.Contract;
 import org.fisco.bcos.web3j.tx.TransactionManager;
 import org.fisco.bcos.web3j.tx.gas.ContractGasProvider;
 import org.fisco.bcos.web3j.tx.txdecode.TransactionDecoder;
-import org.fisco.bcos.web3j.utils.Collection;
-import org.fisco.bcos.web3j.utils.Strings;
-import org.fisco.bcos.web3j.utils.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -1003,8 +1003,7 @@ public class SolidityFunctionWrapper extends Generator {
         ParameterizedTypeName parameterizedTupleType =
                 ParameterizedTypeName.get(
                         ClassName.get(
-                                "org.fisco.bcos.web3j.tuples.generated",
-                                "Tuple" + returnTypes.size()),
+                                "org.fisco.bcos.web3j.utils.tuples", "Tuple" + returnTypes.size()),
                         returnTypes.toArray(new TypeName[returnTypes.size()]));
 
         methodBuilder.returns(parameterizedTupleType);
@@ -1046,8 +1045,7 @@ public class SolidityFunctionWrapper extends Generator {
         ParameterizedTypeName parameterizedTupleType =
                 ParameterizedTypeName.get(
                         ClassName.get(
-                                "org.fisco.bcos.web3j.tuples.generated",
-                                "Tuple" + returnTypes.size()),
+                                "org.fisco.bcos.web3j.utils.tuples", "Tuple" + returnTypes.size()),
                         returnTypes.toArray(new TypeName[returnTypes.size()]));
 
         methodBuilder.returns(parameterizedTupleType);
@@ -1168,7 +1166,7 @@ public class SolidityFunctionWrapper extends Generator {
             ParameterizedTypeName parameterizedTupleType =
                     ParameterizedTypeName.get(
                             ClassName.get(
-                                    "org.fisco.bcos.web3j.tuples.generated",
+                                    "org.fisco.bcos.web3j.utils.tuples",
                                     "Tuple" + returnTypes.size()),
                             returnTypes.toArray(new TypeName[returnTypes.size()]));
 

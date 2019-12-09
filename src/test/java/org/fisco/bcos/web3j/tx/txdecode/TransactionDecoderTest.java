@@ -27,11 +27,11 @@ import org.fisco.bcos.web3j.abi.datatypes.generated.Int256;
 import org.fisco.bcos.web3j.abi.datatypes.generated.StaticArray2;
 import org.fisco.bcos.web3j.abi.datatypes.generated.StaticArray4;
 import org.fisco.bcos.web3j.abi.datatypes.generated.Uint256;
+import org.fisco.bcos.web3j.common.tuples.Tuple2;
 import org.fisco.bcos.web3j.protocol.core.methods.response.AbiDefinition;
 import org.fisco.bcos.web3j.protocol.core.methods.response.AbiDefinition.NamedType;
 import org.fisco.bcos.web3j.protocol.core.methods.response.Log;
 import org.fisco.bcos.web3j.protocol.exceptions.TransactionException;
-import org.fisco.bcos.web3j.tuples.generated.Tuple2;
 import org.junit.Test;
 
 /* test contract

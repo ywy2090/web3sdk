@@ -2,7 +2,7 @@ package org.fisco.bcos.web3j.protocol.core.methods.response;
 
 import java.math.BigInteger;
 import java.util.List;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /**
  * Log object used by {@link BcosLog} and {@link BcosTransactionReceipt}.

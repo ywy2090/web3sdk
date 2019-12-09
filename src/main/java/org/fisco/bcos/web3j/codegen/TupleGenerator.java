@@ -8,14 +8,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.lang.model.element.Modifier;
-import org.fisco.bcos.web3j.tuples.Tuple;
-import org.fisco.bcos.web3j.utils.Strings;
+import org.fisco.bcos.web3j.common.Strings;
+import org.fisco.bcos.web3j.common.tuples.Tuple;
 
 /** A class for generating arbitrary sized tuples. */
 public class TupleGenerator extends Generator {
 
     static final int LIMIT = 20;
-    static final String PACKAGE_NAME = "org.fisco.bcos.web3j.tuples.generated";
+    static final String PACKAGE_NAME = "org.fisco.bcos.web3j.utils.tuples";
     static final String CLASS_NAME = "Tuple";
 
     private static final String SIZE = "SIZE";

@@ -2,7 +2,7 @@ package org.fisco.bcos.channel.event.filter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 
 /**
  * This class is used internally by the program and corresponds to the json request package

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import org.fisco.bcos.channel.dto.BcosBlockNotification;
 import org.fisco.bcos.channel.protocol.EnumChannelProtocolVersion;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 
 public class BlockNotificationParser {
 

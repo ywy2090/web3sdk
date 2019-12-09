@@ -5,13 +5,13 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Random;
 import org.fisco.bcos.channel.client.TransactionSucCallback;
+import org.fisco.bcos.web3j.common.Numeric;
+import org.fisco.bcos.web3j.common.TxHashVerifier;
 import org.fisco.bcos.web3j.crypto.*;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.core.Request;
 import org.fisco.bcos.web3j.protocol.core.methods.response.SendTransaction;
 import org.fisco.bcos.web3j.tx.exceptions.TxHashMismatchException;
-import org.fisco.bcos.web3j.utils.Numeric;
-import org.fisco.bcos.web3j.utils.TxHashVerifier;
 
 /**
  * TransactionManager implementation using Ethereum wallet file to create and sign transactions
@@ -46,22 +46,6 @@ public class ExtendedRawTransactionManager extends TransactionManager {
     }
 
     public ExtendedRawTransactionManager(
-            Web3j web3j,
-            Credentials credentials,
-            byte chainId,
-            int attempts,
-            int sleepDuration,
-            BigInteger groupId,
-            BigInteger fiscoChainId) {
-        super(web3j, attempts, sleepDuration, credentials);
-        this.web3j = web3j;
-        this.credentials = credentials;
-        this.chainId = chainId;
-        this.groupId = groupId;
-        this.fiscoChainId = fiscoChainId;
-    }
-
-    public ExtendedRawTransactionManager(
             Web3j web3j, Credentials credentials, BigInteger groupId, BigInteger fiscoChainId) {
         this(web3j, credentials, ChainId.NONE, groupId, fiscoChainId);
     }
@@ -73,7 +57,7 @@ public class ExtendedRawTransactionManager extends TransactionManager {
             int sleepDuration,
             BigInteger groupId,
             BigInteger fiscoChainId) {
-        this(web3j, credentials, ChainId.NONE, attempts, sleepDuration, groupId, fiscoChainId);
+        this(web3j, credentials, ChainId.NONE, groupId, fiscoChainId);
     }
 
     BigInteger getBlockLimit() throws IOException {

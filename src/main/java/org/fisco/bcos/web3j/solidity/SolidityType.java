@@ -17,7 +17,7 @@
  */
 package org.fisco.bcos.web3j.solidity;
 
-import static org.fisco.bcos.web3j.utils.ByteUtil.toHexString;
+import static org.fisco.bcos.web3j.common.ByteUtil.toHexString;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -27,7 +27,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.fisco.bcos.web3j.utils.ByteUtil;
+import org.fisco.bcos.web3j.common.ByteUtil;
 
 public abstract class SolidityType {
     protected String name;

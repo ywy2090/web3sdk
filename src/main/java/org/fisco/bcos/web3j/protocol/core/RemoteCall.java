@@ -3,7 +3,7 @@ package org.fisco.bcos.web3j.protocol.core;
 import io.reactivex.Flowable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
-import org.fisco.bcos.web3j.utils.Async;
+import org.fisco.bcos.web3j.common.Async;
 
 /**
  * A common type for wrapping remote requests.

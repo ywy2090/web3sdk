@@ -1,9 +1,9 @@
 package org.fisco.bcos.web3j.crypto.gm;
 
 import java.math.BigInteger;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.crypto.ECKeyPair;
 import org.fisco.bcos.web3j.crypto.gm.sm3.SM3Digest;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 public class GenGmAccount {
     public static void main(String[] args) throws Exception {

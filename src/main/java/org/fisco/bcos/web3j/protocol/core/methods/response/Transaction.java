@@ -1,7 +1,7 @@
 package org.fisco.bcos.web3j.protocol.core.methods.response;
 
 import java.math.BigInteger;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /** Transaction object used by both {@link BcosTransaction} and {@link BcosBlock}. */
 public class Transaction {

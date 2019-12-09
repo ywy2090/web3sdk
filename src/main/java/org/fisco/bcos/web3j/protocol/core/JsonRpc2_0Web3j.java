@@ -1,21 +1,17 @@
 package org.fisco.bcos.web3j.protocol.core;
 
-import io.reactivex.Flowable;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ScheduledExecutorService;
+import org.fisco.bcos.web3j.common.BlockLimit;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.Web3jService;
 import org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosBlock;
-import org.fisco.bcos.web3j.protocol.core.methods.response.BcosFilter;
-import org.fisco.bcos.web3j.protocol.core.methods.response.BcosLog;
-import org.fisco.bcos.web3j.protocol.core.methods.response.BcosSubscribe;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosTransaction;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosTransactionReceipt;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BlockHash;
@@ -25,7 +21,6 @@ import org.fisco.bcos.web3j.protocol.core.methods.response.Code;
 import org.fisco.bcos.web3j.protocol.core.methods.response.ConsensusStatus;
 import org.fisco.bcos.web3j.protocol.core.methods.response.GroupList;
 import org.fisco.bcos.web3j.protocol.core.methods.response.GroupPeers;
-import org.fisco.bcos.web3j.protocol.core.methods.response.Log;
 import org.fisco.bcos.web3j.protocol.core.methods.response.NodeIDList;
 import org.fisco.bcos.web3j.protocol.core.methods.response.NodeVersion;
 import org.fisco.bcos.web3j.protocol.core.methods.response.ObserverList;
@@ -40,13 +35,6 @@ import org.fisco.bcos.web3j.protocol.core.methods.response.SystemConfig;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TotalTransactionCount;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceiptWithProof;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionWithProof;
-import org.fisco.bcos.web3j.protocol.core.methods.response.UninstallFilter;
-import org.fisco.bcos.web3j.protocol.rx.JsonRpc2_0Rx;
-import org.fisco.bcos.web3j.protocol.websocket.events.LogNotification;
-import org.fisco.bcos.web3j.protocol.websocket.events.NewHeadsNotification;
-import org.fisco.bcos.web3j.utils.Async;
-import org.fisco.bcos.web3j.utils.BlockLimit;
-import org.fisco.bcos.web3j.utils.Numeric;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,13 +42,7 @@ import org.slf4j.LoggerFactory;
 public class JsonRpc2_0Web3j implements Web3j {
     static Logger logger = LoggerFactory.getLogger(JsonRpc2_0Web3j.class);
     protected static final long ID = 1;
-    public static final int BLOCK_TIME = 15 * 100;
-    public static final int DEFAULT_BLOCK_TIME = 15 * 1000;
     protected final Web3jService web3jService;
-    private final JsonRpc2_0Rx web3jRx;
-    private final long blockTime;
-    private final ScheduledExecutorService scheduledExecutorService;
-
     private int groupId = 1;
 
     public Web3jService web3jService() {
@@ -80,24 +62,12 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     public JsonRpc2_0Web3j(Web3jService web3jService) {
-        this(web3jService, DEFAULT_BLOCK_TIME, Async.defaultExecutorService(), 1);
+        this(web3jService, 1);
     }
 
     public JsonRpc2_0Web3j(Web3jService web3jService, int groupId) {
-        this(web3jService, DEFAULT_BLOCK_TIME, Async.defaultExecutorService(), groupId);
         this.groupId = groupId;
-    }
-
-    public JsonRpc2_0Web3j(
-            Web3jService web3jService,
-            long pollingInterval,
-            ScheduledExecutorService scheduledExecutorService,
-            int groupId) {
         this.web3jService = web3jService;
-        this.web3jRx = new JsonRpc2_0Rx(this, scheduledExecutorService);
-        this.blockTime = pollingInterval;
-        this.scheduledExecutorService = scheduledExecutorService;
-        this.groupId = groupId;
     }
 
     @Override
@@ -322,74 +292,6 @@ public class JsonRpc2_0Web3j implements Web3j {
                 "getGroupPeers", Arrays.asList(groupId), web3jService, GroupPeers.class);
     }
 
-    @Override
-    public Request<?, BcosFilter> newPendingTransactionFilter() {
-        return new Request<>(
-                "newPendingTransactionFilter",
-                Arrays.asList(groupId),
-                web3jService,
-                BcosFilter.class);
-    }
-
-    @Override
-    public Request<?, BcosFilter> newBlockFilter() {
-        return new Request<>(
-                "newBlockFilter", Arrays.asList(groupId), web3jService, BcosFilter.class);
-    }
-
-    @Override
-    public Request<?, BcosLog> getFilterChanges(BigInteger filterId) {
-        return new Request<>(
-                "getFilterChanges",
-                Arrays.asList(groupId, Numeric.toHexStringWithPrefixSafe(filterId)),
-                web3jService,
-                BcosLog.class);
-    }
-
-    @Override
-    public Request<?, UninstallFilter> getUninstallFilter(BigInteger filterId) {
-        return new Request<>(
-                "getUninstallFilter",
-                Arrays.asList(groupId, Numeric.toHexStringWithPrefixSafe(filterId)),
-                web3jService,
-                UninstallFilter.class);
-    }
-
-    @Override
-    public Request<?, BcosFilter> newFilter(
-            org.fisco.bcos.web3j.protocol.core.methods.request.BcosFilter filter) {
-        return new Request<>(
-                "newFilter", Arrays.asList(groupId, filter), web3jService, BcosFilter.class);
-    }
-
-    @Override
-    public Flowable<NewHeadsNotification> newHeadsNotifications() {
-        return web3jService.subscribe(
-                new Request<>(
-                        "subscribe",
-                        Collections.singletonList("newHeads"),
-                        web3jService,
-                        BcosSubscribe.class),
-                "unsubscribe",
-                NewHeadsNotification.class);
-    }
-
-    @Override
-    public Flowable<LogNotification> logsNotifications(
-            List<String> addresses, List<String> topics) {
-
-        Map<String, Object> params = createLogsParams(addresses, topics);
-
-        return web3jService.subscribe(
-                new Request<>(
-                        "subscribe",
-                        Arrays.asList(groupId, "logs", params),
-                        web3jService,
-                        BcosSubscribe.class),
-                "unsubscribe",
-                LogNotification.class);
-    }
-
     private Map<String, Object> createLogsParams(List<String> addresses, List<String> topics) {
         Map<String, Object> params = new HashMap<>();
         if (!addresses.isEmpty()) {
@@ -401,98 +303,6 @@ public class JsonRpc2_0Web3j implements Web3j {
         return params;
     }
 
-    @Override
-    public Flowable<String> blockHashFlowable() {
-        return web3jRx.blockHashFlowable(blockTime);
-    }
-
-    @Override
-    public Flowable<String> pendingTransactionHashFlowable() {
-        return web3jRx.pendingTransactionHashFlowable(blockTime);
-    }
-
-    @Override
-    public Flowable<Log> logFlowable(
-            org.fisco.bcos.web3j.protocol.core.methods.request.BcosFilter filter) {
-        return web3jRx.logFlowable(filter, blockTime);
-    }
-
-    @Override
-    public Flowable<org.fisco.bcos.web3j.protocol.core.methods.response.Transaction>
-            transactionFlowable() {
-        return web3jRx.transactionFlowable(blockTime);
-    }
-
-    @Override
-    public Flowable<org.fisco.bcos.web3j.protocol.core.methods.response.Transaction>
-            pendingTransactionFlowable() {
-        return web3jRx.pendingTransactionFlowable(blockTime);
-    }
-
-    @Override
-    public Flowable<BcosBlock> blockFlowable(boolean fullTransactionObjects) {
-        return web3jRx.blockFlowable(fullTransactionObjects, blockTime);
-    }
-
-    @Override
-    public Flowable<BcosBlock> replayPastBlocksFlowable(
-            DefaultBlockParameter startBlock,
-            DefaultBlockParameter endBlock,
-            boolean fullTransactionObjects) {
-        return web3jRx.replayBlocksFlowable(startBlock, endBlock, fullTransactionObjects);
-    }
-
-    @Override
-    public Flowable<BcosBlock> replayPastBlocksFlowable(
-            DefaultBlockParameter startBlock,
-            DefaultBlockParameter endBlock,
-            boolean fullTransactionObjects,
-            boolean ascending) {
-        return web3jRx.replayBlocksFlowable(
-                startBlock, endBlock, fullTransactionObjects, ascending);
-    }
-
-    @Override
-    public Flowable<BcosBlock> replayPastBlocksFlowable(
-            DefaultBlockParameter startBlock,
-            boolean fullTransactionObjects,
-            Flowable<BcosBlock> onCompleteFlowable) {
-        return web3jRx.replayPastBlocksFlowable(
-                startBlock, fullTransactionObjects, onCompleteFlowable);
-    }
-
-    @Override
-    public Flowable<BcosBlock> replayPastBlocksFlowable(
-            DefaultBlockParameter startBlock, boolean fullTransactionObjects) {
-        return web3jRx.replayPastBlocksFlowable(startBlock, fullTransactionObjects);
-    }
-
-    @Override
-    public Flowable<org.fisco.bcos.web3j.protocol.core.methods.response.Transaction>
-            replayPastTransactionsFlowable(
-                    DefaultBlockParameter startBlock, DefaultBlockParameter endBlock) {
-        return web3jRx.replayTransactionsFlowable(startBlock, endBlock);
-    }
-
-    @Override
-    public Flowable<org.fisco.bcos.web3j.protocol.core.methods.response.Transaction>
-            replayPastTransactionsFlowable(DefaultBlockParameter startBlock) {
-        return web3jRx.replayPastTransactionsFlowable(startBlock);
-    }
-
-    @Override
-    public Flowable<BcosBlock> replayPastAndFutureBlocksFlowable(
-            DefaultBlockParameter startBlock, boolean fullTransactionObjects) {
-        return web3jRx.replayPastAndFutureBlocksFlowable(
-                startBlock, fullTransactionObjects, blockTime);
-    }
-
-    @Override
-    public Flowable<org.fisco.bcos.web3j.protocol.core.methods.response.Transaction>
-            replayPastAndFutureTransactionsFlowable(DefaultBlockParameter startBlock) {
-        return web3jRx.replayPastAndFutureTransactionsFlowable(startBlock, blockTime);
-    }
-
     public int getGroupId() {
         return groupId;
     }
@@ -502,7 +312,6 @@ public class JsonRpc2_0Web3j implements Web3j {
     }
 
     public void shutdown() {
-        scheduledExecutorService.shutdown();
         try {
             web3jService.close();
         } catch (IOException e) {

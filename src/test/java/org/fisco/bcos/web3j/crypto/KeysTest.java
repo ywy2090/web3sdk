@@ -10,8 +10,8 @@ import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Arrays;
-import org.fisco.bcos.web3j.utils.Numeric;
-import org.fisco.bcos.web3j.utils.Strings;
+import org.fisco.bcos.web3j.common.Numeric;
+import org.fisco.bcos.web3j.common.Strings;
 import org.junit.Test;
 
 public class KeysTest {

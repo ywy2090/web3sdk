@@ -38,8 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Predicate;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
-import org.fisco.bcos.web3j.utils.ByteUtil;
+import org.fisco.bcos.web3j.common.ByteUtil;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 
 public class Abi extends ArrayList<Abi.Entry> {
     private static final ObjectMapper DEFAULT_MAPPER =

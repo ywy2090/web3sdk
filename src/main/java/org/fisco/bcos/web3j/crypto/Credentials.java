@@ -1,6 +1,6 @@
 package org.fisco.bcos.web3j.crypto;
 
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /** Credentials wrapper. */
 public class Credentials {

@@ -7,7 +7,7 @@ import org.bouncycastle.crypto.digests.RIPEMD160Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /** Crypto related functions. */
 public class Hash {

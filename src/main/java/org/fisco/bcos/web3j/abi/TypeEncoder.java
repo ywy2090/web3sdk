@@ -5,7 +5,7 @@ import static org.fisco.bcos.web3j.abi.datatypes.Type.MAX_BYTE_LENGTH;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import org.fisco.bcos.web3j.abi.datatypes.*;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /**
  * Ethereum Contract Application Binary Interface (ABI) encoding for types. Further details are

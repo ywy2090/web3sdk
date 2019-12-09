@@ -11,9 +11,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.Numeric;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 import org.fisco.bcos.web3j.protocol.core.Response;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 public class BcosBlock extends Response<BcosBlock.Block> {
 

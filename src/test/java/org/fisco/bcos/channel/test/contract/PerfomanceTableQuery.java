@@ -10,11 +10,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.fisco.bcos.channel.client.Service;
+import org.fisco.bcos.web3j.common.tuples.Tuple3;
 import org.fisco.bcos.web3j.crypto.Credentials;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
-import org.fisco.bcos.web3j.tuples.generated.Tuple3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -54,12 +54,7 @@ public class PerfomanceTableQuery {
 
             ScheduledExecutorService scheduledExecutorService =
                     Executors.newScheduledThreadPool(500);
-            Web3j web3 =
-                    Web3j.build(
-                            channelEthereumService,
-                            15 * 100,
-                            scheduledExecutorService,
-                            Integer.parseInt(groupId));
+            Web3j web3 = Web3j.build(channelEthereumService, Integer.parseInt(groupId));
 
             Credentials credentials =
                     Credentials.create(

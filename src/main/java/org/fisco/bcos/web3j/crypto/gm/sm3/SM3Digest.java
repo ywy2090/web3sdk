@@ -1,9 +1,9 @@
 package org.fisco.bcos.web3j.crypto.gm.sm3;
 
 import org.bouncycastle.util.encoders.Hex;
+import org.fisco.bcos.web3j.common.Numeric;
+import org.fisco.bcos.web3j.common.Strings;
 import org.fisco.bcos.web3j.crypto.HashInterface;
-import org.fisco.bcos.web3j.utils.Numeric;
-import org.fisco.bcos.web3j.utils.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

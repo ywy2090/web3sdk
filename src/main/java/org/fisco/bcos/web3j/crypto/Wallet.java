@@ -19,7 +19,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /**
  * Ethereum wallet file management. For reference, refer to <a

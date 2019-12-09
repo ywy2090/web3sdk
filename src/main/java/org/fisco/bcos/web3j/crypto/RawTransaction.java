@@ -2,8 +2,7 @@ package org.fisco.bcos.web3j.crypto;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import org.fisco.bcos.web3j.tx.TransactionConstant;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /**
  * Transaction class used for signing transactions locally.<br>
@@ -20,7 +19,6 @@ public class RawTransaction implements Serializable {
     private String to;
     private BigInteger value;
     private String data;
-    private BigInteger version = TransactionConstant.version;
 
     protected RawTransaction(
             BigInteger randomid,
@@ -115,9 +113,5 @@ public class RawTransaction implements Serializable {
 
     public String getData() {
         return data;
-    }
-
-    public BigInteger getVersion() {
-        return version;
     }
 }

@@ -1,6 +1,6 @@
 package org.fisco.bcos.web3j.crypto;
 
-import static org.fisco.bcos.web3j.utils.Assertions.verifyPrecondition;
+import static org.fisco.bcos.web3j.common.Assertions.verifyPrecondition;
 
 import java.math.BigInteger;
 import java.security.SignatureException;

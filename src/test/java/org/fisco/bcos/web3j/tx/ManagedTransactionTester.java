@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import org.fisco.bcos.web3j.common.TxHashVerifier;
 import org.fisco.bcos.web3j.crypto.Credentials;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.core.Request;
@@ -13,7 +14,6 @@ import org.fisco.bcos.web3j.protocol.core.methods.response.BcosTransactionReceip
 import org.fisco.bcos.web3j.protocol.core.methods.response.BlockNumber;
 import org.fisco.bcos.web3j.protocol.core.methods.response.SendTransaction;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
-import org.fisco.bcos.web3j.utils.TxHashVerifier;
 import org.junit.Before;
 
 public abstract class ManagedTransactionTester {
@@ -32,8 +32,7 @@ public abstract class ManagedTransactionTester {
 
     public TransactionManager getVerifiedTransactionManager(
             Credentials credentials, int attempts, int sleepDuration) {
-        RawTransactionManager transactionManager =
-                new RawTransactionManager(web3j, credentials, attempts, sleepDuration);
+        RawTransactionManager transactionManager = new RawTransactionManager(web3j, credentials);
         transactionManager.setTxHashVerifier(txHashVerifier);
         return transactionManager;
     }

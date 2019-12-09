@@ -1,7 +1,7 @@
 package org.fisco.bcos.web3j.crypto;
 
 import java.math.BigInteger;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /** Keys generated for unit testing purposes. */
 public class SampleKeys {

@@ -24,7 +24,7 @@ import org.fisco.bcos.web3j.abi.datatypes.Ufixed;
 import org.fisco.bcos.web3j.abi.datatypes.Uint;
 import org.fisco.bcos.web3j.abi.datatypes.Utf8String;
 import org.fisco.bcos.web3j.abi.datatypes.generated.Uint160;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /**
  * Ethereum Contract Application Binary Interface (ABI) decoding for types. Decoding is not

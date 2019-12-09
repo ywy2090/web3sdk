@@ -2,9 +2,9 @@ package org.fisco.bcos.channel.event.filter;
 
 import java.math.BigInteger;
 import java.util.List;
+import org.fisco.bcos.web3j.common.Strings;
 import org.fisco.bcos.web3j.crypto.WalletUtils;
 import org.fisco.bcos.web3j.protocol.core.DefaultBlockParameterName;
-import org.fisco.bcos.web3j.utils.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -11,8 +11,8 @@ import org.fisco.bcos.web3j.abi.datatypes.StaticArray;
 import org.fisco.bcos.web3j.abi.datatypes.Type;
 import org.fisco.bcos.web3j.abi.datatypes.Utf8String;
 import org.fisco.bcos.web3j.abi.datatypes.generated.Bytes32;
-import org.fisco.bcos.web3j.utils.Numeric;
-import org.fisco.bcos.web3j.utils.Strings;
+import org.fisco.bcos.web3j.common.Numeric;
+import org.fisco.bcos.web3j.common.Strings;
 
 /** Decodes values returned by function or event calls. */
 public class FunctionReturnDecoder {

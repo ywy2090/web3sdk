@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.Web3jService;
 import org.fisco.bcos.web3j.protocol.core.DefaultBlockParameter;
@@ -33,7 +33,7 @@ public class MockBlockTest {
         BcosBlock block = objectMapper.readValue(rawResponse, BcosBlock.class);
         block.setRawResponse(rawResponse);
 
-        Web3j web3j = Web3j.build(web3jService);
+        Web3j web3j = Web3j.build(web3jService, 1);
         when(web3jService.send(any(Request.class), eq(BcosBlock.class))).thenReturn(block);
 
         BcosBlock mockBlocks =

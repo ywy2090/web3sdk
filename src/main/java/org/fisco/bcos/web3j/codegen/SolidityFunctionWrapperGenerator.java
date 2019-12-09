@@ -1,7 +1,7 @@
 package org.fisco.bcos.web3j.codegen;
 
 import static org.fisco.bcos.web3j.codegen.Console.exitError;
-import static org.fisco.bcos.web3j.utils.Collection.tail;
+import static org.fisco.bcos.web3j.common.Collection.tail;
 import static picocli.CommandLine.Help.Visibility.ALWAYS;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,10 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.Files;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 import org.fisco.bcos.web3j.protocol.core.methods.response.AbiDefinition;
 import org.fisco.bcos.web3j.tx.Contract;
-import org.fisco.bcos.web3j.utils.Files;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;

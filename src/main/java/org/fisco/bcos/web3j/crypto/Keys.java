@@ -13,8 +13,8 @@ import java.security.Security;
 import java.security.spec.ECGenParameterSpec;
 import java.util.Arrays;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.fisco.bcos.web3j.utils.Numeric;
-import org.fisco.bcos.web3j.utils.Strings;
+import org.fisco.bcos.web3j.common.Numeric;
+import org.fisco.bcos.web3j.common.Strings;
 
 /** Crypto key utilities. */
 public class Keys {

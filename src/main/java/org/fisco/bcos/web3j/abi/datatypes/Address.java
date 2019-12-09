@@ -2,7 +2,7 @@ package org.fisco.bcos.web3j.abi.datatypes;
 
 import java.math.BigInteger;
 import org.fisco.bcos.web3j.abi.datatypes.generated.Uint160;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /** Address type, which is equivalent to uint160. */
 public class Address implements Type<String> {

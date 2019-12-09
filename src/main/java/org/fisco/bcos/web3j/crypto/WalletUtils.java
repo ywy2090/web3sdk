@@ -12,8 +12,8 @@ import java.security.NoSuchProviderException;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 
 /** Utility functions for working with Wallet files. */
 public class WalletUtils {

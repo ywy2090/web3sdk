@@ -20,16 +20,16 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.fisco.bcos.channel.client.Service;
+import org.fisco.bcos.web3j.common.Web3AsyncThreadPoolSize;
+import org.fisco.bcos.web3j.common.tuples.Tuple2;
 import org.fisco.bcos.web3j.crypto.Credentials;
 import org.fisco.bcos.web3j.crypto.gm.GenCredential;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
-import org.fisco.bcos.web3j.tuples.generated.Tuple2;
 import org.fisco.bcos.web3j.tx.Contract;
 import org.fisco.bcos.web3j.tx.TransactionManager;
 import org.fisco.bcos.web3j.tx.gas.StaticGasProvider;
-import org.fisco.bcos.web3j.utils.Web3AsyncThreadPoolSize;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -184,12 +184,7 @@ public class PerformanceDTTest {
         Web3AsyncThreadPoolSize.web3AsyncPoolSize = 2000;
 
         ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(500);
-        Web3j web3 =
-                Web3j.build(
-                        channelEthereumService,
-                        15 * 100,
-                        scheduledExecutorService,
-                        Integer.parseInt(groupId));
+        Web3j web3 = Web3j.build(channelEthereumService, Integer.parseInt(groupId));
 
         Credentials credentials = GenCredential.create();
 

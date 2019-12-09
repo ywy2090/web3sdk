@@ -2,7 +2,7 @@ package org.fisco.bcos.web3j.protocol.core.methods.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.math.BigInteger;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /**
  * Transaction request object used the below methods.

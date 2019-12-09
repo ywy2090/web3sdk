@@ -1,7 +1,7 @@
 package org.fisco.bcos.web3j.crypto;
 
 import org.bouncycastle.jcajce.provider.digest.Keccak;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /** Created by websterchen on 2018/3/21. */
 public class SHA3Digest implements HashInterface {

@@ -4,11 +4,11 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.rlp.RlpEncoder;
 import org.fisco.bcos.web3j.rlp.RlpList;
 import org.fisco.bcos.web3j.rlp.RlpString;
 import org.fisco.bcos.web3j.rlp.RlpType;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 /** Smart Contract utility functions. */
 public class ContractUtils {

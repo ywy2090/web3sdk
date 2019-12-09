@@ -3,8 +3,8 @@ package org.fisco.bcos.web3j.precompile.cns;
 import java.net.IDN;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.crypto.Hash;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 /** ENS name hash implementation. */
 public class NameHash {

@@ -2,7 +2,7 @@ package org.fisco.bcos.channel.test.contract;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import org.fisco.bcos.channel.client.TransactionSucCallback;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

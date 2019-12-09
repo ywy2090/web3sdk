@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.fisco.bcos.web3j.abi.datatypes.Function;
 import org.fisco.bcos.web3j.abi.datatypes.Type;
 import org.fisco.bcos.web3j.abi.datatypes.Uint;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.crypto.Hash;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 /**
  * Ethereum Contract Application Binary Interface (ABI) encoding for functions. Further details are

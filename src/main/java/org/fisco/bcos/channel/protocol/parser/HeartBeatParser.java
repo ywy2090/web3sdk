@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import java.io.IOException;
 import org.fisco.bcos.channel.dto.BcosHeartbeat;
 import org.fisco.bcos.channel.protocol.EnumChannelProtocolVersion;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 
 public class HeartBeatParser {
 

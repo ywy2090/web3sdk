@@ -3,9 +3,9 @@ package org.fisco.bcos.channel.event.filter;
 import java.math.BigInteger;
 import org.fisco.bcos.web3j.abi.TypeEncoder;
 import org.fisco.bcos.web3j.abi.datatypes.Bytes;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.crypto.Hash;
 import org.fisco.bcos.web3j.crypto.WalletUtils;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 public class TopicTools {
     public static final int MAX_NUM_TOPIC_EVENT_LOG = 4;

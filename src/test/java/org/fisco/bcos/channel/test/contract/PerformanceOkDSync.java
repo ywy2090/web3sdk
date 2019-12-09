@@ -7,11 +7,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.fisco.bcos.channel.client.Service;
+import org.fisco.bcos.web3j.common.Async;
 import org.fisco.bcos.web3j.crypto.Credentials;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
-import org.fisco.bcos.web3j.utils.Async;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -46,12 +46,7 @@ public class PerformanceOkDSync {
 
             ScheduledExecutorService scheduledExecutorService =
                     Executors.newScheduledThreadPool(500);
-            Web3j web3 =
-                    Web3j.build(
-                            channelEthereumService,
-                            15 * 100,
-                            scheduledExecutorService,
-                            Integer.parseInt(groupId));
+            Web3j web3 = Web3j.build(channelEthereumService, Integer.parseInt(groupId));
 
             Credentials credentials =
                     Credentials.create(

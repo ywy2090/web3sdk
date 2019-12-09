@@ -2,7 +2,7 @@ package org.fisco.bcos.web3j.rlp;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /** RLP string type. */
 public class RlpString implements RlpType {

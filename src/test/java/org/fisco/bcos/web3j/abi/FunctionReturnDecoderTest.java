@@ -20,8 +20,8 @@ import org.fisco.bcos.web3j.abi.datatypes.generated.StaticArray3;
 import org.fisco.bcos.web3j.abi.datatypes.generated.StaticArray6;
 import org.fisco.bcos.web3j.abi.datatypes.generated.Uint256;
 import org.fisco.bcos.web3j.abi.datatypes.generated.Uint32;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.crypto.Hash;
-import org.fisco.bcos.web3j.utils.Numeric;
 import org.junit.Test;
 
 public class FunctionReturnDecoderTest {

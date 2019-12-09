@@ -8,6 +8,7 @@ import org.fisco.bcos.channel.test.contract.MixContract.CreateResultEventRespons
 import org.fisco.bcos.channel.test.contract.MixContract.InsertResultEventResponse;
 import org.fisco.bcos.channel.test.contract.MixContract.RemoveResultEventResponse;
 import org.fisco.bcos.channel.test.contract.MixContract.UpdateResultEventResponse;
+import org.fisco.bcos.web3j.common.tuples.Tuple3;
 import org.fisco.bcos.web3j.crypto.Credentials;
 import org.fisco.bcos.web3j.crypto.ECKeyPair;
 import org.fisco.bcos.web3j.crypto.Keys;
@@ -16,7 +17,6 @@ import org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService;
 import org.fisco.bcos.web3j.protocol.core.RemoteCall;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.fisco.bcos.web3j.protocol.exceptions.TransactionException;
-import org.fisco.bcos.web3j.tuples.generated.Tuple3;
 import org.fisco.bcos.web3j.tx.gas.ContractGasProvider;
 import org.fisco.bcos.web3j.tx.gas.StaticGasProvider;
 import org.slf4j.Logger;

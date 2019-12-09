@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.fisco.bcos.web3j.abi.datatypes.Event;
 import org.fisco.bcos.web3j.abi.datatypes.Type;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.crypto.Hash;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 /**
  * Ethereum filter encoding. Further limited details are available <a

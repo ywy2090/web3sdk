@@ -3,6 +3,7 @@ package org.fisco.bcos.channel.client;
 import java.io.IOException;
 import java.math.BigInteger;
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.crypto.Hash;
 import org.fisco.bcos.web3j.protocol.Web3j;
 import org.fisco.bcos.web3j.protocol.core.methods.response.Transaction;
@@ -11,7 +12,6 @@ import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceiptWit
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionWithProof;
 import org.fisco.bcos.web3j.rlp.RlpEncoder;
 import org.fisco.bcos.web3j.rlp.RlpString;
-import org.fisco.bcos.web3j.utils.Numeric;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -2,12 +2,12 @@ package org.fisco.bcos.web3j.crypto;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.fisco.bcos.web3j.common.Bytes;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.rlp.RlpEncoder;
 import org.fisco.bcos.web3j.rlp.RlpList;
 import org.fisco.bcos.web3j.rlp.RlpString;
 import org.fisco.bcos.web3j.rlp.RlpType;
-import org.fisco.bcos.web3j.utils.Bytes;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 /**
  * Create RLP encoded transaction, implementation as per p4 of the <a

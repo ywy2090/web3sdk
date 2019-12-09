@@ -66,7 +66,9 @@ public class HttpService extends Service {
     }
 
     @Override
-    public void sendOnly(Request request) throws IOException {}
+    public void sendOnly(Request request) throws IOException {
+        throw new UnsupportedOperationException("http service not support sendOnly operation.");
+    }
 
     private Header[] buildHeaders() {
         List<Header> headers = new ArrayList<>();

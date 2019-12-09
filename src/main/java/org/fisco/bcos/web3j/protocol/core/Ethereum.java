@@ -2,8 +2,6 @@ package org.fisco.bcos.web3j.protocol.core;
 
 import java.math.BigInteger;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosBlock;
-import org.fisco.bcos.web3j.protocol.core.methods.response.BcosFilter;
-import org.fisco.bcos.web3j.protocol.core.methods.response.BcosLog;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosTransaction;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosTransactionReceipt;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BlockHash;
@@ -27,7 +25,6 @@ import org.fisco.bcos.web3j.protocol.core.methods.response.SystemConfig;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TotalTransactionCount;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceiptWithProof;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionWithProof;
-import org.fisco.bcos.web3j.protocol.core.methods.response.UninstallFilter;
 
 /** Core FISCO BCOS JSON-RPC API. */
 public interface Ethereum {
@@ -93,16 +90,4 @@ public interface Ethereum {
             DefaultBlockParameter defaultBlockParameter);
 
     Request<?, SendTransaction> sendRawTransaction(String signedTransactionData);
-
-    // TODO
-    Request<?, BcosFilter> newPendingTransactionFilter();
-
-    Request<?, BcosFilter> newBlockFilter();
-
-    Request<?, BcosLog> getFilterChanges(BigInteger filterId);
-
-    Request<?, UninstallFilter> getUninstallFilter(BigInteger filterId);
-
-    Request<?, BcosFilter> newFilter(
-            org.fisco.bcos.web3j.protocol.core.methods.request.BcosFilter ethFilter);
 }

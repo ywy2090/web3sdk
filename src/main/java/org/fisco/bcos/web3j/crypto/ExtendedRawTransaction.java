@@ -2,8 +2,7 @@ package org.fisco.bcos.web3j.crypto;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import org.fisco.bcos.web3j.tx.TransactionConstant;
-import org.fisco.bcos.web3j.utils.Numeric;
+import org.fisco.bcos.web3j.common.Numeric;
 
 /**
  * Transaction class used for signing transactions locally.<br>
@@ -23,7 +22,6 @@ public class ExtendedRawTransaction implements Serializable {
     private BigInteger fiscoChainId;
     private BigInteger groupId;
     private String extraData;
-    private BigInteger version = TransactionConstant.version;
 
     protected ExtendedRawTransaction(
             BigInteger randomid,
@@ -139,10 +137,6 @@ public class ExtendedRawTransaction implements Serializable {
 
     public String getData() {
         return data;
-    }
-
-    public BigInteger getVersion() {
-        return version;
     }
 
     public BigInteger getGroupId() {

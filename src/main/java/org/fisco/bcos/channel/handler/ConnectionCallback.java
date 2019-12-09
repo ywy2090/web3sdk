@@ -29,7 +29,7 @@ import org.fisco.bcos.channel.protocol.ChannelProtocol;
 import org.fisco.bcos.channel.protocol.EnumChannelProtocolVersion;
 import org.fisco.bcos.channel.protocol.EnumSocketChannelAttributeKey;
 import org.fisco.bcos.fisco.EnumNodeVersion;
-import org.fisco.bcos.web3j.protocol.ObjectMapperFactory;
+import org.fisco.bcos.web3j.common.deserializer.ObjectMapperFactory;
 import org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService;
 import org.fisco.bcos.web3j.protocol.core.Request;
 import org.fisco.bcos.web3j.protocol.core.Response;

@@ -1,10 +1,10 @@
 package org.fisco.bcos.web3j.crypto;
 
 import java.math.BigInteger;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.rlp.RlpDecoder;
 import org.fisco.bcos.web3j.rlp.RlpList;
 import org.fisco.bcos.web3j.rlp.RlpString;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 public class TransactionDecoder {
 

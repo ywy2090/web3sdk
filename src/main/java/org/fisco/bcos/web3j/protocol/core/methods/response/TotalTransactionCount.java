@@ -1,8 +1,8 @@
 package org.fisco.bcos.web3j.protocol.core.methods.response;
 
 import java.math.BigInteger;
+import org.fisco.bcos.web3j.common.Numeric;
 import org.fisco.bcos.web3j.protocol.core.Response;
-import org.fisco.bcos.web3j.utils.Numeric;
 
 /** getTotalTransactionCount */
 public class TotalTransactionCount extends Response<TotalTransactionCount.TransactionCount> {
