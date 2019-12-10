@@ -15,16 +15,16 @@
 
 
 	<bean id="encryptType"
-		class="org.fisco.bcos.web3j.crypto.EncryptType">
+		class="org.fisco.bcos.v2.crypto.EncryptType">
 		<constructor-arg value="0" /> <!-- 0:standard 1:guomi -->
 	</bean>
 
 	<bean id="groupChannelConnectionsConfig"
-		class="org.fisco.bcos.channel.handler.GroupChannelConnectionsConfig">
+		class="org.fisco.bcos.v2.channel.handler.GroupChannelConnectionsConfig">
 		<property name="allChannelConnections">
 			<list>
 				<bean id="group1"
-					class="org.fisco.bcos.channel.handler.ChannelConnections">
+					class="org.fisco.bcos.v2.channel.handler.ChannelConnections">
 					<property name="groupId" value="1" />
 					<property name="connectionsStr">
 						<list>
@@ -34,7 +34,7 @@
 					</property>
 				</bean>
 				<bean id="group2"
-					class="org.fisco.bcos.channel.handler.ChannelConnections">
+					class="org.fisco.bcos.v2.channel.handler.ChannelConnections">
 					<property name="groupId" value="2" />
 					<property name="connectionsStr">
 						<list>
@@ -46,7 +46,7 @@
 			</list>
 		</property>
 	</bean>
-	 <bean id="channelService" class="org.fisco.bcos.channel.client.Service" depends-on="groupChannelConnectionsConfig"> 
+	 <bean id="channelService" class="org.fisco.bcos.v2.channel.client.Service" depends-on="groupChannelConnectionsConfig">
     <property name="groupId" value="1"/>  
     <property name="agencyName" value="fisco"/>  
     <property name="allChannelConnections" ref="groupChannelConnectionsConfig"/>  
@@ -56,7 +56,7 @@
   
   <!-- If you want to enable topic authentication, please uncomment the following configuration. -->  
   <!--
-    <bean class="org.fisco.bcos.channel.handler.AMOPVerifyTopicToKeyInfo" id="amopVerifyTopicToKeyInfo">
+    <bean class="org.fisco.bcos.v2.channel.handler.AMOPVerifyTopicToKeyInfo" id="amopVerifyTopicToKeyInfo">
 		<property name="topicToKeyInfo">
 			<map>
 				<entry key="helloworld00000001" value-ref="AMOPVerifyKeyInfo_helloworld00000001" />
@@ -71,7 +71,7 @@
 	-->  
 	
   <!--
-	<bean class="org.fisco.bcos.channel.handler.
+	<bean class="org.fisco.bcos.v2.channel.handler.
 	" id="AMOPVerifyKeyInfo_helloworld00000001">
 		<property name="publicKey">
 			<list>
@@ -86,7 +86,7 @@
 		This private key will authenticate you to the corresponding topic producer.
 	-->  
   <!--
-	<bean class="org.fisco.bcos.channel.handler.AMOPVerifyKeyInfo" id="AMOPVerifyKeyInfo_helloworld00000001">
+	<bean class="org.fisco.bcos.v2.channel.handler.AMOPVerifyKeyInfo" id="AMOPVerifyKeyInfo_helloworld00000001">
 		<property name="privateKey" value="classpath:$consumer_private_key.pem$"></property>
 	</bean>
 	--> 
