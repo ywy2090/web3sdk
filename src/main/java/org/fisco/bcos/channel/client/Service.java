@@ -299,11 +299,11 @@ public class Service {
     }
 
     public void run() throws Exception {
-        logger.debug("init ChannelService");
-
-        if (setJavaOpt) {
-            initJavaOpt();
-        }
+        logger.info(" ===> init ChannelService");
+        //
+        //        if (setJavaOpt) {
+        //            initJavaOpt();
+        //        }
         parseFromTopic2KeyInfo();
         int flag = 0;
 
