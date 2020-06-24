@@ -1,14 +1,11 @@
 package org.fisco.bcos.web3j.protocol.rx;
 
 import io.reactivex.Flowable;
-import java.util.List;
 import org.fisco.bcos.web3j.protocol.core.DefaultBlockParameter;
 import org.fisco.bcos.web3j.protocol.core.methods.request.BcosFilter;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosBlock;
 import org.fisco.bcos.web3j.protocol.core.methods.response.Log;
 import org.fisco.bcos.web3j.protocol.core.methods.response.Transaction;
-import org.fisco.bcos.web3j.protocol.websocket.events.LogNotification;
-import org.fisco.bcos.web3j.protocol.websocket.events.NewHeadsNotification;
 
 /** The Observables JSON-RPC client event API. */
 @Deprecated
@@ -172,24 +169,4 @@ public interface Web3jRx {
      * @return a {@link Flowable} instance to emit all requested transactions and future
      */
     Flowable<Transaction> replayPastAndFutureTransactionsFlowable(DefaultBlockParameter startBlock);
-
-    /**
-     * Creates a {@link Flowable} instance that emits a notification when a new header is appended
-     * to a chain, including chain reorganizations.
-     *
-     * @return a {@link Flowable} instance that emits a notification for every new header
-     */
-    Flowable<NewHeadsNotification> newHeadsNotifications();
-
-    /**
-     * Creates aa {@link Flowable} instance that emits notifications for logs included in new
-     * imported blocks.
-     *
-     * @param addresses only return logs from this list of address. Return logs from all addresses
-     *     if the list is empty
-     * @param topics only return logs that match specified topics. Returns logs for all topics if
-     *     the list is empty
-     * @return a {@link Flowable} instance that emits logs included in new blocks
-     */
-    Flowable<LogNotification> logsNotifications(List<String> addresses, List<String> topics);
 }

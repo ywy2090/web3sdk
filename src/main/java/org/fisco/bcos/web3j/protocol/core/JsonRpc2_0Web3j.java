@@ -4,7 +4,6 @@ import io.reactivex.Flowable;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +17,6 @@ import org.fisco.bcos.web3j.protocol.core.methods.response.BcosBlock;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosBlockHeader;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosFilter;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosLog;
-import org.fisco.bcos.web3j.protocol.core.methods.response.BcosSubscribe;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosTransaction;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BcosTransactionReceipt;
 import org.fisco.bcos.web3j.protocol.core.methods.response.BlockHash;
@@ -51,8 +49,6 @@ import org.fisco.bcos.web3j.protocol.core.methods.response.Transaction;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceiptWithProof;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionWithProof;
 import org.fisco.bcos.web3j.protocol.core.methods.response.UninstallFilter;
-import org.fisco.bcos.web3j.protocol.websocket.events.LogNotification;
-import org.fisco.bcos.web3j.protocol.websocket.events.NewHeadsNotification;
 import org.fisco.bcos.web3j.utils.Async;
 import org.fisco.bcos.web3j.utils.BlockLimit;
 import org.fisco.bcos.web3j.utils.Numeric;
@@ -567,34 +563,6 @@ public class JsonRpc2_0Web3j implements Web3j {
     public Flowable<Transaction> replayPastAndFutureTransactionsFlowable(
             DefaultBlockParameter startBlock) {
         return null;
-    }
-
-    @Override
-    public Flowable<NewHeadsNotification> newHeadsNotifications() {
-        return web3jService.subscribe(
-                new Request<>(
-                        "subscribe",
-                        Collections.singletonList("newHeads"),
-                        web3jService,
-                        BcosSubscribe.class),
-                "unsubscribe",
-                NewHeadsNotification.class);
-    }
-
-    @Override
-    public Flowable<LogNotification> logsNotifications(
-            List<String> addresses, List<String> topics) {
-
-        Map<String, Object> params = createLogsParams(addresses, topics);
-
-        return web3jService.subscribe(
-                new Request<>(
-                        "subscribe",
-                        Arrays.asList(groupId, "logs", params),
-                        web3jService,
-                        BcosSubscribe.class),
-                "unsubscribe",
-                LogNotification.class);
     }
 
     private Map<String, Object> createLogsParams(List<String> addresses, List<String> topics) {
